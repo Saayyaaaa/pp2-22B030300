@@ -1,0 +1,210 @@
+#Example 1
+
+thisset = {"apple", "banana", "cherry"}
+print(thisset)
+
+# Note: the set list is unordered, meaning: the items will appear in a random order.
+
+# Refresh this page to see the change in the result.
+
+
+#Example 2
+
+thisset = {"apple", "banana", "cherry", "apple"}
+
+print(thisset)
+
+
+#Example 3
+
+thisset = {"apple", "banana", "cherry"}
+
+print(len(thisset))
+
+
+#Example 4
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {1, 5, 7, 9, 3}
+set3 = {True, False, False}
+
+print(set1)
+print(set2)
+print(set3)
+
+
+#Example 5
+
+set1 = {"abc", 34, True, 40, "male"}
+
+print(set1)
+
+
+#Example 6
+
+myset = {"apple", "banana", "cherry"}
+
+print(type(myset))
+
+
+#Example 7
+
+thisset = set(("apple", "banana", "cherry"))
+print(thisset)
+# Note: the set list is unordered, so the result will display the items in a random order.
+
+
+#Example 8
+
+thisset = {"apple", "banana", "cherry"}
+
+for x in thisset:
+  print(x)
+
+
+#Example 9
+
+thisset = {"apple", "banana", "cherry"}
+
+print("banana" in thisset)
+
+
+#Example 10
+
+thisset = {"apple", "banana", "cherry"}
+
+thisset.add("orange")
+
+print(thisset)
+
+
+#Example 11
+
+thisset = {"apple", "banana", "cherry"}
+tropical = {"pineapple", "mango", "papaya"}
+
+thisset.update(tropical)
+
+print(thisset)
+
+
+#Example 12
+
+thisset = {"apple", "banana", "cherry"}
+mylist = ["kiwi", "orange"]
+
+thisset.update(mylist)
+
+print(thisset)
+
+
+#Example 13
+
+thisset = {"apple", "banana", "cherry"}
+
+thisset.remove("banana")
+
+print(thisset)
+
+
+#Example 14
+
+thisset = {"apple", "banana", "cherry"}
+
+thisset.discard("banana")
+
+print(thisset)
+
+
+#Example 15
+
+thisset = {"apple", "banana", "cherry"}
+
+x = thisset.pop()
+
+print(x) #removed item
+
+print(thisset) #the set after removal
+
+
+#Example 16
+
+thisset = {"apple", "banana", "cherry"}
+
+thisset.clear()
+
+print(thisset)
+
+
+#Example 17
+
+thisset = {"apple", "banana", "cherry"}
+
+del thisset
+
+print(thisset) #this will raise an error because the set no longer exists
+
+
+#Example 18
+
+thisset = {"apple", "banana", "cherry"}
+
+for x in thisset:
+  print(x)
+
+#Example 19
+
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+
+set3 = set1.union(set2)
+print(set3)
+
+
+#Example 20
+
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+
+set1.update(set2)
+print(set1)
+
+
+#Example 21
+
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+x.intersection_update(y)
+
+print(x)
+
+
+#Example 22
+
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+z = x.intersection(y)
+
+print(z)
+
+
+#Example 23
+
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+x.symmetric_difference_update(y)
+
+print(x)
+
+
+#Example 24
+
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+z = x.symmetric_difference(y)
+
+print(z)
