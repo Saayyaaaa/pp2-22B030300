@@ -11,4 +11,4 @@ class dog(animal):
         print('mya')
 
 class sfinks(cat):
-    eat.
+    pass
