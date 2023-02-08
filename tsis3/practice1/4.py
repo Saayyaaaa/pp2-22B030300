@@ -1,9 +1,11 @@
-import collections
+# Dictionary
+s = input()
+words = s.split()
 
-words = input().split()
-results = collections.defaultdict(int)
+counts = {}
 
 for word in words:
-    results[word] += 1
-
-print(results) 
+    if word not in counts: 
+        counts[word] = 1 
+    else:
+        counts[word] += 1
