@@ -1,5 +1,6 @@
 def all_numbers(N):
     for i in range(N, -1, -1):
-        print(i)
+        yield i
 
-all_numbers(int(input()))
+for num in all_numbers(int(input())):
+    print(num)
