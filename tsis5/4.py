@@ -2,7 +2,7 @@ import re
 
 pattern = r'[A-Z][a-z]+'
 
-test_string = 'This is a Test String With Some More Words'
+test_string = input() #This is Test
 
 matches = re.findall(pattern, test_string)
 
