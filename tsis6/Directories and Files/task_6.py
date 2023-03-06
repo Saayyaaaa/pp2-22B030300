@@ -1,0 +1,8 @@
+f = open('a.txt', mode='w')
+print(f)
+f = open('b.txt', mode='w')
+print(f)
+f = open('c.txt', mode='w')
+print(f)
+f = open('z.txt', mode='w')
+print(f)
