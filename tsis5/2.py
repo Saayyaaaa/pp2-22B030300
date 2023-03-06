@@ -2,10 +2,7 @@ import re
 
 pattern = r'a[b]{2,3}'
 
-test_strings = ['ab', 'abb', 'a', 'acb', 'abbbs', 'abbbb', 'b']
+test_strings = ['abbbabadedjabbbaddjfjabbb']
 
 for s in test_strings:
-    if re.match(pattern, s):
-        print(s, "True")
-    else:
-        print(s, "False")
+    print(re.findall(pattern, s))
