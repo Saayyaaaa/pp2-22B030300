@@ -1,4 +1,4 @@
-f = open('rawdata.txt', mode='w')
+f = open('rawdata.txt', mode='a')
 print(f)
 
 # open

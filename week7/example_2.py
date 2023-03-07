@@ -1,5 +1,5 @@
-f = open('rawdata.txt', mode='w')
+f = open('rawdata.txt', mode='a')
 print(f)
 f.write('hello kbtu - 1\n')
-# f.close()
 f.write('1 2 3')
+f.close()

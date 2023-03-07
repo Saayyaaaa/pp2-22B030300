@@ -1,8 +1,8 @@
 import os
 print("Test a path exists or not:")
-path = r'g:\\testpath\\a.txt'
+path = r'../Directories and Files'
 print(os.path.exists(path))
-path = r'g:\\testpath\\p.txt'
+path = r'../Directories and Files'
 print(os.path.exists(path))
 print("\nFile name of the path:")
 print(os.path.basename(path))

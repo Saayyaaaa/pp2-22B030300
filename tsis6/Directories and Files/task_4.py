@@ -1,3 +1,4 @@
+f = open('directory.txt', 'a')
 file_path = 'directory.txt'
 
 with open(file_path, 'r') as file:
