@@ -1,7 +1,8 @@
+import re
 def insert_spaces(string):
     new_string = ""
     for char in string:
-        if char.isupper() and new_string[-1] != " ":
+        if char.isupper() and new_string != " ":
             new_string += " "
         new_string += char
     return new_string
