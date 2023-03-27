@@ -8,9 +8,9 @@ screen = pygame.display.set_mode((1400, 1050))
 
 clock = pygame.time.Clock()
 
-image = pygame.image.load(r'C:\Users\Сая\Desktop\pp2-22B030300\tsis7\clockmickey\mickeyclockbase.png')
-image_Sec=pygame.image.load(r'C:\Users\Сая\Desktop\pp2-22B030300\tsis7\clockmickey\second.png')
-image_Min=pygame.image.load(r'C:\Users\Сая\Desktop\pp2-22B030300\tsis7\clockmickey\minut.png')
+image = pygame.image.load(r'.\tsis7\clockmickey\mickeyclockbase.png')
+image_Sec=pygame.image.load(r'.\tsis7\clockmickey\second.png')
+image_Min=pygame.image.load(r'.\tsis7\clockmickey\minut.png')
 
 topleft = (0, 0)
 done = False
