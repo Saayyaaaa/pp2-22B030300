@@ -38,4 +38,4 @@ def level():
         sprites.update()
         sprites.draw(screen)
         pygame.display.flip()
-main()
+level()
