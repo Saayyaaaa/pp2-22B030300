@@ -21,7 +21,8 @@ clock = pygame.time.Clock()
  
 snake_block = 10 #координата 10 на 10
 snake_speed = 10
- 
+
+#шрифты
 font_style = pygame.font.SysFont("bahnschrift", 25) #шрифт
 score_font = pygame.font.SysFont("comicsansms", 35)
 
@@ -34,13 +35,11 @@ def our_snake(snake_block, snake_list):
         pygame.draw.rect(dis, blue, [x[0], x[1], snake_block, snake_block])
          #рисуем змейку
 
-        
-
 def message(msg, color):
     mesg = font_style.render(msg, True, color)
     dis.blit(mesg, [dis_width / 6, dis_height / 3])
  
-def gameLoop():
+def gameLoop(): #Описываем всю игровую логику в одной функции.
     game_over = False
     game_close = False
  
@@ -50,7 +49,7 @@ def gameLoop():
     x1_change = 0
     y1_change = 0
  
-    snake_List = []
+    snake_List = [] #Создаём список, в котором будем хранить показатель текущей длины змейки.
     Length_of_snake = 1
  
     foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0 #Round - округлять число

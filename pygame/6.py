@@ -2,6 +2,14 @@ import pygame
 
 def main():
     pygame.init()
+
+    white = (255, 255, 255)
+    yellow = (255, 255, 102)
+    black = (0, 0, 0)
+    red = (213, 50, 80)
+    green = (0, 255, 0)
+    blue = (50, 153, 213)
+
     screen = pygame.display.set_mode((640, 480))
     clock = pygame.time.Clock()
     
@@ -10,6 +18,9 @@ def main():
     y = 0
     mode = 'blue'
     points = []
+
+    colors = [white, yellow, black, red, green, blue]
+    v = 0
 
     mouse_pressed = False
 
@@ -28,32 +39,26 @@ def main():
                     return
             
                 # determine if a letter key was pressed
-                if event.key == pygame.K_r:
-                    mode = 'red'
-                elif event.key == pygame.K_g:
-                    mode = 'green'
-                elif event.key == pygame.K_b:
-                    mode = 'blue'
-                elif event.key == pygame.K_q:
+                if event.key == pygame.K_q:
                     pick_form = 0
-                    points=[]
+                    points = []
                 elif event.key == pygame.K_a:
                     pick_form = 1
-                    points=[]
+                    points = []
                 elif event.key == pygame.K_z:
                     pick_form = 2
-                    points=[]
+                    points = []
                 elif event.key == pygame.K_UP:
                     radius = min(200, radius + 1)
                 elif event.key == pygame.K_DOWN:
-                    radius = max(1, radius - 1)  
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 1: # нажатие кнопки мыши
+                    radius = max(1, radius - 1)
+            if event.type == pygame.MOUSEBUTTONDOWN: #нажатие кнопки мыши
+                if event.button == 1:
                     mouse_pressed = True
                     
-            elif event.type == pygame.MOUSEBUTTONUP:
-                if event.button == 1: # отпускание кнопки мыши
-                    mouse_pressed=False
+            elif event.type == pygame.MOUSEBUTTONUP: #отпускание кнопки мыши
+                if event.button == 1:
+                    mouse_pressed = False
 
             if event.type == pygame.MOUSEMOTION: #перемещение курсора мыши
 
@@ -63,16 +68,20 @@ def main():
                     points = points[-256:]
                 else:
                     points=[]
+
+            if event.type == pygame.MOUSEWHEEL: #кручение колесика мыши
+                for j in colors:
+                    j[0] += 1
                     
         # draw all points
         i = 0
         while i < len(points) - 1:
             if pick_form == 0:
-                drawLineBetween(screen, i, points[i], points[i + 1], radius, mode, pick_form, mouse_pressed)
+                drawLineBetween(screen, i, points[i], points[i + 1], radius, mode, pick_form,mouse_pressed)
             if pick_form == 1:
-                drawLineRect(screen, i, points[i], points[i + 1], radius, mode, pick_form, mouse_pressed)
+                drawLineRect(screen, i, points[i], points[i + 1], radius, mode, pick_form,mouse_pressed)
             if pick_form == 2:
-                drawLineEraser(screen, i, points[i], points[i + 1], radius, mode, pick_form, mouse_pressed)
+                drawLineEraser(screen, i, points[i], points[i + 1], radius, mode, pick_form,mouse_pressed)
             i += 1
         
         pygame.display.flip()
