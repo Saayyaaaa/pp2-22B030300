@@ -8,3 +8,6 @@ blit(source,dest,area=None,special_flags=0)
 
 surface = pygame.Surface((100,100), pygame.SRCALPHA) 
 #Для прозрачной инициализации Surface передайте аргумент SRCALPHA.
+
+update() # используется для применения каких-либо изменений на экране
+flip() # переписывает весь экран целиком

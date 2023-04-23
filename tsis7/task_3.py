@@ -36,4 +36,4 @@ while not done:
         pygame.draw.circle(screen, color, [x, y], 25, 0)
         
         pygame.display.flip()
-        clock.tick(60)
+        clock.tick(40)

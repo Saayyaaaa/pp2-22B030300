@@ -18,4 +18,3 @@ while True:
             pygame.quit() 
             quit() 
         pygame.display.update()  
-Источник: https://pythonpip.ru/osnovy/rukovodstvo-po-programmirovaniyu-igr-na-pygame-v-python-ustanovka-i-prostye-primery
