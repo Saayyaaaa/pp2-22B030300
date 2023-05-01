@@ -1,10 +1,8 @@
-from config import config
 import pygame
 import time
 import random
 import psycopg2
 import pygame as pg
-import csv
 
 pygame.init()
 
@@ -15,8 +13,8 @@ red = (213, 50, 80)
 green = (0, 255, 0)
 blue = (50, 153, 213)
  
-dis_width = 620
-dis_height = 460
+dis_width = 600
+dis_height = 400
 
 dis = pygame.display.set_mode((dis_width, dis_height))
 pygame.display.set_caption('Snake Game by Pythonist')
@@ -53,8 +51,12 @@ def message(msg, color):
  
 def gameLoop(text):
     
-    parameters = config()
-    connection = psycopg2.connect(**parameters)
+    connection = psycopg2.connect(
+        host="localhost",
+        database="saya",
+        user="postgres",
+        password="sayka030704"
+    )
 
     query_create_user = "INSERT INTO snake_game (name, score) VALUES (%s, %s) ;"
     query_update_user = "Update snake_game set score=%s where name =%s ;"
@@ -136,13 +138,13 @@ def gameLoop(text):
                     x1_change = 0
                 elif event.key == pygame.K_SPACE:
                     pause()
-        if x1 >= dis_width or x1 < 0 or y1 >= dis_height or y1 < 0:
+        if x1 >= dis_width + 30 or x1 < 0 or y1 >= dis_height + 30 or y1 < 0:
                 game_over = True #Укажем, что если координаты змейкивыходят за рамки игрового поля, то игра должна закончиться.
                     
  
         x1 += x1_change
         y1 += y1_change
-        dis.fill(yellow)
+        dis.fill(white)
         current_score = Length_of_snake-1
     
         if point % 3 == 0:
