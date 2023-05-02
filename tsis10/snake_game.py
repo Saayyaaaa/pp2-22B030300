@@ -201,13 +201,10 @@ def main():
             if event.type == pg.QUIT:
                 done = True
             if event.type == pg.MOUSEBUTTONDOWN:
-                # If the user clicked on the input_box rect.
                 if input_box.collidepoint(event.pos):
-                    # Toggle the active variable.
                     active = not active
                 else:
                     active = False
-                # Change the current color of the input box.
                 color = color_active if active else color_inactive
             if event.type == pg.KEYDOWN:
                 if active:
@@ -219,14 +216,10 @@ def main():
                         text += event.unicode
 
         screen.fill((30, 30, 30))
-        # Render the current text.
         txt_surface = font.render(text, True, color)
-        # Resize the box if the text is too long.
         width = max(200, txt_surface.get_width()+10)
         input_box.w = width
-        # Blit the text.
         screen.blit(txt_surface, (input_box.x+5, input_box.y+5))
-        # Blit the input_box rect.
         pg.draw.rect(screen, color, input_box, 2)
 
         pg.display.flip()
