@@ -3,13 +3,13 @@ import psycopg2
 import csv
 import os
 
-
+#connection
 parameters = config()
 conn = psycopg2.connect(**parameters)
 cursor  = conn.cursor()
 
 
-def add_data():
+def add_data(): #добавление данных
     rows = []
     mode = int(input("Select input:\n1 - read from console input\nEnter: "))
 
@@ -36,22 +36,22 @@ def add_data():
         
         with open(path) as file:
             data = csv.reader(file)
-            next(data)  # skipping header
+            next(data)
 
             for row in data:
-                if "--" in row[0] or "--" in row[1]: # preventing SQL-injection
+                if "--" in row[0] or "--" in row[1]:
                     print("Error")
                     return
                 else:
                     rows.append(row)
     
     for row in rows:
-        cursor.execute(f"INSERT INTO PhoneBook (name, number) VALUES ('{row[0]}', '{row[1]}')")
+        cursor.execute(f"INSERT INTO PhoneBook (name, number) VALUES ('{row[0]}', '{row[1]}')") #Метод который выполняет задание строки
 
     conn.commit()
     print("Done")
 
-def update_data():
+def update_data(): #обновление данных
     initial_name   = input("Enter name of contact: ")
     initial_number = input("Enter number of contact: ")
     if "--" in initial_name or "--" in initial_number:
@@ -59,7 +59,7 @@ def update_data():
         return
 
     cursor.execute(f"SELECT * FROM PhoneBook WHERE name = '{initial_name}' AND number = '{initial_number}'")
-    if cursor.rowcount == 0:
+    if cursor.rowcount == 0: #это общее количество строк в таблице, без разделения на строки фиксированной зоны и рабочей зоны.
         print("Contact does not exist")
         return
 
@@ -73,7 +73,7 @@ def update_data():
         print("Error")
         return
     
-    cursor.execute(f"UPDATE PhoneBook SET {mode} = '{new_info}' WHERE name = '{initial_name}' AND number = '{initial_number}'")
+    cursor.execute(f"UPDATE PhoneBook SET {mode} = '{new_info}' WHERE name = '{initial_name}' AND number = '{initial_number}'") #метод для выполнения одного выражения SQL
     
     conn.commit()
     print("Done")
@@ -81,7 +81,7 @@ def update_data():
 
 
 
-def query_data():
+def query_data(): #пойск
     query_mode = int(input(
         "Choose query mode:\n1 - search by name\n2 - search by number\n3 - find starts with\n4 - search any attribute\nEnter: "
         ))
@@ -116,7 +116,7 @@ def query_data():
 
 
 
-def delete_data():
+def delete_data(): #удаление данных
     mode = input("Select delete by:\nname - delete by name\nnumber - delete by number\nEnter: ")
     if mode not in ["name", "number"]:
         print("Error")
@@ -129,7 +129,7 @@ def delete_data():
 
     cursor.execute(f"DELETE FROM PhoneBook WHERE {mode} = '{info}'")
     
-    conn.commit()
+    conn.commit() #Записать транзакцию
     print("Done")
 
 
@@ -145,7 +145,7 @@ def main():
     
     functions[mode]()
 
-    cursor.close()
+    cursor.close() #немедленно закрывает курсор
     conn.close()
     
 
