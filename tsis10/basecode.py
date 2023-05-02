@@ -1,11 +1,8 @@
 import psycopg2
 
-connection = psycopg2.connect(
-    host="localhost",
-    database="saya",
-    user="postgres",
-    password="sayka030704"
-) 
+parameters = config()
+connection = psycopg2.connect(**parameters)
+
 query_clear="Delete from PhoneBook;" #очистить таблицу
 query_create_user = "INSERT INTO PhoneBook (user_name, phone) VALUES (%s, %s) ;" #создаем пользователей
 

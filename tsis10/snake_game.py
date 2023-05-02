@@ -19,7 +19,7 @@ dis_width = 620
 dis_height = 460
 
 dis = pygame.display.set_mode((dis_width, dis_height))
-pygame.display.set_caption('Snake Game by Pythonist')
+pygame.display.set_caption('Snake')
  
 clock = pygame.time.Clock()
  
@@ -28,6 +28,7 @@ snake_speed = 10
  
 font_style = pygame.font.SysFont("bahnschrift", 25) #шрифт
 score_font = pygame.font.SysFont("comicsansms", 35)
+
 def pause():
     paused=True
     while paused:
@@ -38,6 +39,7 @@ def pause():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     paused=False
+
 def Your_score(score):
     value = font_style.render("Your Score: " + str(score), True, yellow) #Метод для отображения текста
     dis.blit(value, [dis_width / 6, dis_height / 3+50]) #подставляем на указанные координаты

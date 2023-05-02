@@ -1,21 +1,20 @@
-#!/usr/bin/python
 from configparser import ConfigParser
 
 
 def config(filename=r'C:\Users\Сая\Desktop\pp2-22B030300\tsis10\desktop.ini', section='postgresql'):
-    # create a parser
+    # создайте синтаксический анализаторя
     parser = ConfigParser()
-    # read config file
+    # прочитать конфигурационный файл
     parser.read(filename)
 
-    # get section, default to postgresql
+    # раздел get, по умолчанию используется postgresql
     db = {}
     if parser.has_section(section):
         params = parser.items(section)
         for param in params:
             db[param[0]] = param[1]
     else:
-        raise Exception('Section {0} not found in the {1} file'.format(section, filename))
+        raise Exception('Section {0} not found in the {1} file'.format(section, filename)) #если есть ошибка
 
     return db
-#читает database.ini файл и возвращает параметры подключения.
+#читает desktop.ini файл и возвращает параметры подключения.
